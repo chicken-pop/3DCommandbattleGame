@@ -144,6 +144,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.toonshader": {
+      "version": "0.8.4-preview",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ugui": {
       "version": "1.0.0",
       "depth": 0,
@@ -162,6 +171,46 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.vrmc.gltf": {
+      "version": "https://github.com/vrm-c/UniVRM.git?path=/Assets/UniGLTF#v0.109.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.vrmc.vrmshaders": "0.109.0",
+        "com.unity.modules.animation": "1.0.0"
+      },
+      "hash": "7affa42bcab90a1c673d50670d5642d6d7c29c29"
+    },
+    "com.vrmc.univrm": {
+      "version": "https://github.com/vrm-c/UniVRM.git?path=/Assets/VRM#v0.109.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.vrmc.vrmshaders": "0.109.0",
+        "com.vrmc.gltf": "0.109.0",
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "7affa42bcab90a1c673d50670d5642d6d7c29c29"
+    },
+    "com.vrmc.vrm": {
+      "version": "https://github.com/vrm-c/UniVRM.git?path=/Assets/VRM10#v0.109.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.vrmc.vrmshaders": "0.109.0",
+        "com.vrmc.gltf": "0.109.0"
+      },
+      "hash": "7affa42bcab90a1c673d50670d5642d6d7c29c29"
+    },
+    "com.vrmc.vrmshaders": {
+      "version": "https://github.com/vrm-c/UniVRM.git?path=/Assets/VRMShaders#v0.109.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.imageconversion": "1.0.0"
+      },
+      "hash": "7affa42bcab90a1c673d50670d5642d6d7c29c29"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
