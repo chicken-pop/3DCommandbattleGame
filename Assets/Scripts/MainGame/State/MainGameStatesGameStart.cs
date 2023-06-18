@@ -35,6 +35,6 @@ public class MainGameStatesGameStart : MainGameState
     {
         Debug.Log("MainGameStatesGameStart Update");
 
-        stateMachine.ChangeState(new MainGameStatesGameMain(stateMachine));
+        stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesGameMain);
     }
 }

@@ -73,6 +73,14 @@ public class CharacterUIRoot : MonoBehaviour
 
         waitUISpeed += waitSpeed * Time.deltaTime;
         waitGauge.fillAmount = waitUISpeed / waitGaugeLimit;
+
+        //waitのターンの場合、ゲージを進める
+        if (MainGameStateManager.Instance.GetMainGameState.IsState(MainGameStateManager.Instance.MainGameStatesPlayerWaitTurn))
+        {
+            IsGaugeFull = false;
+            waitUISpeed += waitSpeed+Time.deltaTime;
+            waitGauge.fillAmount = waitUISpeed / waitGaugeLimit;
+        }
     }
 
 }

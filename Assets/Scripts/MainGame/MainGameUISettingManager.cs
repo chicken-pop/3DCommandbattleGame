@@ -15,15 +15,13 @@ public class MainGameUISettingManager : MonoBehaviour
 
     private void Update()
     {
-        if (characterUIRoot.IsGaugeFull 
-            && !mainGameUIButtonsManager.gameObject.activeSelf 
+        if (characterUIRoot.IsGaugeFull
+            && !mainGameUIButtonsManager.gameObject.activeSelf
             && mainGameCharacterController.GetCharacterData == characterUIRoot.GetCharacterUIData)
         {
             mainGameUIButtonsManager.gameObject.SetActive(true);
+            mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
         }
 
-        mainGameUIButtonsManager.gameObject.SetActive(true);
-
-        //mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
     }
 }
