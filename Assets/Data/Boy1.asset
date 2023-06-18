@@ -19,5 +19,5 @@ MonoBehaviour:
   PhysicalAttackPower: 60
   MagicalAttackPower: 60
   CharacterType: 1
-  CharacterPrefab: {fileID: -1728013695380148634, guid: 3a05638cd9b85bf42aa0c7bce7311994,
+  CharacterPrefab: {fileID: 3909317705921860666, guid: dd61e3d126ffa264ca11844591814e9d,
     type: 3}
