@@ -21,6 +21,6 @@ public class MainGameStatesGameInit : MainGameState
     public override void Update()
     {
         Debug.Log("MainGameStatesGameInit Update");
-        stateMachine.ChangeState(new MainGameStatesGameStart(stateMachine));
+        stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesGameStart);
     }
 }
