@@ -18,7 +18,14 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
 
     public MainGameStatesGameInit MainGameStatesGameInit;
     public MainGameStatesGameStart MainGameStatesGameStart;
+
+    //Main部分
     public MainGameStatesGameMain MainGameStatesGameMain;
+
+    public MainGameStatesPlayerWaitTurn MainGameStatesPlayerWaitTurn;
+    public MainGameStatesPlayerAttackTurn MainGameStatesPlayerAttackTurn;
+    public MainGameStatesPlayerChoiceTurn MainGameStatesPlayerChoiceTurn;
+
     public MainGameStatesGameResult MainGameStatesGameResult;
 
     [SerializeField] 
@@ -29,7 +36,13 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
         stateMachine = new MainGameStateMachine();
         MainGameStatesGameInit = new MainGameStatesGameInit(stateMachine);
         MainGameStatesGameStart = new MainGameStatesGameStart(stateMachine, CharacterUIRoots);
+
         MainGameStatesGameMain = new MainGameStatesGameMain(stateMachine);
+        MainGameStatesPlayerWaitTurn = new MainGameStatesPlayerWaitTurn(stateMachine, CharacterUIRoots);
+        MainGameStatesPlayerChoiceTurn = new MainGameStatesPlayerChoiceTurn(stateMachine);
+        MainGameStatesPlayerAttackTurn = new MainGameStatesPlayerAttackTurn(stateMachine);
+
+
         MainGameStatesGameResult = new MainGameStatesGameResult(stateMachine);
 
         //Initからスタート

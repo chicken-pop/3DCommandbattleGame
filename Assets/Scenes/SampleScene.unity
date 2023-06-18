@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 0b9845d27b1331541b56304c9671d09e, type: 2}
   characterUIRoot: {fileID: 2622759556192752669}
+  IsActionChoiced: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7435d2013eada24fb45a84cfd4270e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterUIRoots: []
 --- !u!4 &1444514589
 Transform:
   m_ObjectHideFlags: 0

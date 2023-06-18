@@ -29,8 +29,7 @@ public class MainGameCharacterController : MonoBehaviour
     public MainGameUIButtonsManager.ButtonAction secondaryButtonAction;
     public MainGameUIButtonsManager.ButtonAction tertiaryButtonAction;
 
-
-
+    public bool IsActionChoiced = false;
 
     private static string AnimationActionType = "ActionType";
 
@@ -40,19 +39,19 @@ public class MainGameCharacterController : MonoBehaviour
         {
             gameCharacterData = ScriptableObject.CreateInstance<CharacterData>();
             gameCharacterData.Initialize(characterData);
-            var characterPrefab = Instantiate(gameCharacterData.CharacterPrefab, this.transform);
-            gameCharacterAnimator = characterPrefab.GetComponentInChildren<Animator>();
-
-            characterUIRoot.CharacterUIInitialize(gameCharacterData);
-            primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
-
-
-
         }
+    }
+
+    public void CharacterInstantiate()
+    {
+        var characterPrefab = Instantiate(gameCharacterData.CharacterPrefab, this.transform);
+        gameCharacterAnimator = characterPrefab.GetComponentInChildren<Animator>();
+        primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
     }
 
     public void SetAnimnation(int actionType)
     {
+        IsActionChoiced = true;
         StartCoroutine(SetActionAnimation(actionType));
     }
 
@@ -62,8 +61,10 @@ public class MainGameCharacterController : MonoBehaviour
 
         yield return new WaitWhile(() => gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
 
-        yield return new WaitWhile(() => gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-
         gameCharacterAnimator.SetInteger(AnimationActionType, -1);
+
+        yield return new WaitWhile(() => !gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+
+        IsActionChoiced = false;
     }
 }
