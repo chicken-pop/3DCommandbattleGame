@@ -170,6 +170,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 0b9845d27b1331541b56304c9671d09e, type: 2}
   characterUIRoot: {fileID: 2622759556192752669}
   IsActionChoiced: 0
+  PointOfAttack: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCharacterControllers:
   - {fileID: 45530926}
+  PointOfAttack: {fileID: 0}
 --- !u!4 &881285960
 Transform:
   m_ObjectHideFlags: 0

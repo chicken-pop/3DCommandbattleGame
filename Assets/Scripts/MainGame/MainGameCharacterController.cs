@@ -33,6 +33,8 @@ public class MainGameCharacterController : MonoBehaviour
 
     private static string AnimationActionType = "ActionType";
 
+    public Transform PointOfAttack;
+
     private void Start()
     {
         if (characterData != null)
@@ -46,6 +48,9 @@ public class MainGameCharacterController : MonoBehaviour
     {
         var characterPrefab = Instantiate(gameCharacterData.CharacterPrefab, this.transform);
         gameCharacterAnimator = characterPrefab.GetComponentInChildren<Animator>();
+
+        var CharacterClickHandler= characterPrefab.AddComponent<CharacterClickHandler>();
+
         primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
     }
 
