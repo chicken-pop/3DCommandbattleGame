@@ -22,8 +22,13 @@ public class MainGameCharacterController : MonoBehaviour
 
     private Animator gameCharacterAnimator;
 
+    public Animator GetGameCharacterAnimator
+    {
+        get { return gameCharacterAnimator; }
+    }
+
     [SerializeField]
-    private CharacterUIRoot characterUIRoot;
+    //private CharacterUIRoot characterUIRoot;
 
     public MainGameUIButtonsManager.ButtonAction primaryButtonAction;
     public MainGameUIButtonsManager.ButtonAction secondaryButtonAction;
@@ -35,12 +40,25 @@ public class MainGameCharacterController : MonoBehaviour
 
     public Transform PointOfAttack;
 
+    CharacterStateMachine characterStateMachine;
+    public CharacterStateMachine GetCharacterStateMachine
+    {
+        get { return characterStateMachine; }
+    }
+
+    private Transform characterPrefabTransform = null;
+    public Transform GetCharacterPrefabTransform
+    {
+        get { return characterPrefabTransform; }
+    }
+
     private void Start()
     {
         if (characterData != null)
         {
             gameCharacterData = ScriptableObject.CreateInstance<CharacterData>();
             gameCharacterData.Initialize(characterData);
+            characterStateMachine = new CharacterStateMachine(this);
         }
     }
 
@@ -49,15 +67,33 @@ public class MainGameCharacterController : MonoBehaviour
         var characterPrefab = Instantiate(gameCharacterData.CharacterPrefab, this.transform);
         gameCharacterAnimator = characterPrefab.GetComponentInChildren<Animator>();
 
-        var CharacterClickHandler= characterPrefab.AddComponent<CharacterClickHandler>();
+        characterPrefabTransform = characterPrefab.transform;
+
+        var CharacterClickHandler = characterPrefab.AddComponent<CharacterClickHandler>();
 
         primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
+
+        characterStateMachine.Initialize(characterStateMachine.waitState);
+    }
+
+    private void Update()
+    {
+        characterStateMachine.Update();
     }
 
     public void SetAnimnation(int actionType)
     {
         IsActionChoiced = true;
-        StartCoroutine(SetActionAnimation(actionType));
+        if (characterData.CharacterType == CharacterData.CharacterTypes.SpellCaster)
+        {
+            characterStateMachine.TransitionTo(characterStateMachine.attackState);
+        }
+        else
+        {
+            characterStateMachine.TransitionTo(characterStateMachine.moveState);
+        }
+
+        //StartCoroutine(SetActionAnimation(actionType));
     }
 
     public IEnumerator SetActionAnimation(int actionType)
