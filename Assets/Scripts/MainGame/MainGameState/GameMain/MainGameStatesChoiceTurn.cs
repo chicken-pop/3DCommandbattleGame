@@ -11,6 +11,13 @@ public class MainGameStatesChoiceTurn : MainGameStatesGameMain
 
     public override void Enter()
     {
+        var gaugeFullCharacterData = MainGameUISettingManager
+            .Instance.GetCharacterUIRoots
+            .Find(gauge => gauge.IsGaugeFull).GetCharacterUIData;
+        var gaugeFullPlayer = GameCharacterDataProvider.Instance
+            .PlayerCharacterControllers.Find(player => player.GetCharacterData == gaugeFullCharacterData);
+
+        MainGameUISettingManager.Instance.SetButton(gaugeFullPlayer);
 
     }
 
@@ -23,7 +30,7 @@ public class MainGameStatesChoiceTurn : MainGameStatesGameMain
     {
         base.Update();
 
-        if(GameCharacterDataProvider.Instance.PlayerCharacterControllers.Any(player => player.IsActionChoiced))
+        if (GameCharacterDataProvider.Instance.PlayerCharacterControllers.Any(player => player.IsActionChoiced))
         {
             stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesAttackTurn);
         }

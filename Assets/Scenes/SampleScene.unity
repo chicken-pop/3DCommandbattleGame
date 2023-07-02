@@ -1034,7 +1034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b64280e6f8f8a4b844c61b3063f858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterUIRoot: {fileID: 2622759556192752669}
+  characterUIRoots:
+  - {fileID: 2622759556192752669}
   mainGameUIButtonsManager: {fileID: 204423369544356656}
   mainGameCharacterController: {fileID: 45530926}
 --- !u!1 &1177983032

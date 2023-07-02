@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGameUISettingManager : MonoBehaviour
+public class MainGameUISettingManager : SingletonMonoBehaviour<MainGameUISettingManager>
 {
     [SerializeField]
-    private CharacterUIRoot characterUIRoot;
+    private List<CharacterUIRoot> characterUIRoots = new List<CharacterUIRoot>();
+
+    public List<CharacterUIRoot> GetCharacterUIRoots
+    {
+        get { return characterUIRoots; }
+    }
 
     [SerializeField]
     private MainGameUIButtonsManager mainGameUIButtonsManager;
@@ -13,15 +18,14 @@ public class MainGameUISettingManager : MonoBehaviour
     [SerializeField]
     private MainGameCharacterController mainGameCharacterController;
 
-    private void Update()
+    public override void Awake()
     {
-        if (characterUIRoot.IsGaugeFull
-            && !mainGameUIButtonsManager.gameObject.activeSelf
-            && mainGameCharacterController.GetCharacterData == characterUIRoot.GetCharacterUIData)
-        {
-            mainGameUIButtonsManager.gameObject.SetActive(true);
-            mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
-        }
+        isSceneinSingleton = true;
+    }
 
+    public void SetButton(MainGameCharacterController mainGameCharacterController)
+    {
+        mainGameUIButtonsManager.gameObject.SetActive(true);
+        mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
     }
 }
