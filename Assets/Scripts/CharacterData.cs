@@ -47,6 +47,9 @@ public class CharacterData : ScriptableObject
     [SerializeField]
     public GameObject CharacterPrefab;
 
+    [SerializeField]
+    public bool IsEnemy;
+
     public void Initialize(CharacterData characterData)
     {
         Name = characterData.Name;
@@ -57,6 +60,7 @@ public class CharacterData : ScriptableObject
         MagicPoint = characterData.MagicalAttackPower;
         CharacterType = characterData.CharacterType;
         CharacterPrefab = characterData.CharacterPrefab;
+        IsEnemy = characterData.IsEnemy;
 
     }
 }

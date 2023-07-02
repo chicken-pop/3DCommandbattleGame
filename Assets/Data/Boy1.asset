@@ -15,9 +15,10 @@ MonoBehaviour:
   Name: "\u50E7\u4FB6"
   HitPoint: 120
   MagicPoint: 80
-  Speed: 45
+  Speed: 20
   PhysicalAttackPower: 60
   MagicalAttackPower: 60
   CharacterType: 0
   CharacterPrefab: {fileID: 3909317705921860666, guid: dd61e3d126ffa264ca11844591814e9d,
     type: 3}
+  IsEnemy: 0

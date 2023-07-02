@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MainGameStatesPlayerChoiceTurn : MainGameStatesGameMain
+public class MainGameStatesChoiceTurn : MainGameStatesGameMain
 {
-    public MainGameStatesPlayerChoiceTurn(MainGameStateMachine stateMachine) : base(stateMachine)
+    public MainGameStatesChoiceTurn(MainGameStateMachine stateMachine) : base(stateMachine)
     {
     }
 
@@ -25,7 +25,7 @@ public class MainGameStatesPlayerChoiceTurn : MainGameStatesGameMain
 
         if(GameCharacterDataProvider.Instance.PlayerCharacterControllers.Any(player => player.IsActionChoiced))
         {
-            stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesPlayerAttackTurn);
+            stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesAttackTurn);
         }
 
 

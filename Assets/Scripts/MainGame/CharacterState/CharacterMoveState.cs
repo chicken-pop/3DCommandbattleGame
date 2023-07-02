@@ -24,6 +24,13 @@ public class CharacterMoveState : ICharacterState
     public void Enter()
     {
         this.pointOfAttack = GameCharacterDataProvider.Instance.PointOfAttack;
+
+        //ìGÇæÇ¡ÇΩèÍçá
+        if (characterData.IsEnemy)
+        {
+            pointOfAttack = GameCharacterDataProvider.Instance.PlayerCharacterControllers.FirstOrDefault().PointOfAttack;
+        }
+
         if (pointOfAttack == null)
         {
             var enemy = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault();

@@ -11,19 +11,19 @@ public class MainGameStatesGameMain : MainGameState
 
     public override void Enter()
     {
-        Debug.Log("MainGameStatesGameMain Enter");
+        //Debug.Log("MainGameStatesGameMain Enter");
         //ゲームのメインに入った場合、プレイヤーの待つターンにする
-        stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesPlayerWaitTurn);
+        stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesWaitTurn);
     }
 
     public override void Exit()
     {
-        Debug.Log("MainGameStatesGameMain Exit");
+        //Debug.Log("MainGameStatesGameMain Exit");
     }
 
     public override void Update()
     {
-        Debug.Log("MainGameStatesGameMain Update");
+        //Debug.Log("MainGameStatesGameMain Update");
         //MainGameCharacterControllerのHpを取得する
         if(GameCharacterDataProvider.Instance.PlayerCharacterControllers.All(x => x.GetCharacterData.HitPoint <= 0))
         {

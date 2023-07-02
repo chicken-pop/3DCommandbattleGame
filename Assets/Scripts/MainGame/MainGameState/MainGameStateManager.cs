@@ -21,10 +21,9 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
 
     //Main•”•ª
     public MainGameStatesGameMain MainGameStatesGameMain;
-
-    public MainGameStatesPlayerWaitTurn MainGameStatesPlayerWaitTurn;
-    public MainGameStatesPlayerAttackTurn MainGameStatesPlayerAttackTurn;
-    public MainGameStatesPlayerChoiceTurn MainGameStatesPlayerChoiceTurn;
+    public MainGameStatesWaitTurn MainGameStatesWaitTurn;
+    public MainGameStatesAttackTurn MainGameStatesAttackTurn;
+    public MainGameStatesChoiceTurn MainGameStatesChoiceTurn;
 
     public MainGameStatesGameResult MainGameStatesGameResult;
 
@@ -38,9 +37,9 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
         MainGameStatesGameStart = new MainGameStatesGameStart(stateMachine, CharacterUIRoots);
 
         MainGameStatesGameMain = new MainGameStatesGameMain(stateMachine);
-        MainGameStatesPlayerWaitTurn = new MainGameStatesPlayerWaitTurn(stateMachine, CharacterUIRoots);
-        MainGameStatesPlayerChoiceTurn = new MainGameStatesPlayerChoiceTurn(stateMachine);
-        MainGameStatesPlayerAttackTurn = new MainGameStatesPlayerAttackTurn(stateMachine);
+        MainGameStatesWaitTurn = new MainGameStatesWaitTurn(stateMachine, CharacterUIRoots);
+        MainGameStatesChoiceTurn = new MainGameStatesChoiceTurn(stateMachine);
+        MainGameStatesAttackTurn = new MainGameStatesAttackTurn(stateMachine);
 
 
         MainGameStatesGameResult = new MainGameStatesGameResult(stateMachine);

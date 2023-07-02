@@ -80,7 +80,11 @@ public class MainGameCharacterController : MonoBehaviour
 
         var CharacterClickHandler = characterPrefab.AddComponent<CharacterClickHandler>();
 
-        primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
+        //“G‚¶‚á‚È‚¢ê‡ƒ{ƒ^ƒ“‚ð•\Ž¦
+        if (!characterData.IsEnemy)
+        {
+            primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
+        }
 
         characterStateMachine.Initialize(characterStateMachine.waitState);
 
@@ -99,6 +103,7 @@ public class MainGameCharacterController : MonoBehaviour
 
     public void SetAnimnation(int actionType)
     {
+        Debug.Log("a");
         IsActionChoiced = true;
         if (characterData.CharacterType == CharacterData.CharacterTypes.SpellCaster)
         {
@@ -112,24 +117,12 @@ public class MainGameCharacterController : MonoBehaviour
         //StartCoroutine(SetActionAnimation(actionType));
     }
 
-    public IEnumerator SetActionAnimation(int actionType)
-    {
-        gameCharacterAnimator.SetInteger(AnimationActionType, actionType);
-
-        yield return new WaitWhile(() => gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-
-        gameCharacterAnimator.SetInteger(AnimationActionType, -1);
-
-        yield return new WaitWhile(() => !gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
-
-        IsActionChoiced = false;
-    }
-
     private void PhysicsAttackFunction()
     {
         GameCharacterDataProvider.Instance.PointOfAttack
             .GetComponentInParent<MainGameCharacterController>()
             .Damage(gameCharacterData.PhysicalAttackPower);
+        MainGameCameraManager.Instance.CameraShake();
     }
 
     public void Damage(float damage)

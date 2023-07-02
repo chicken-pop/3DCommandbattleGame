@@ -61,7 +61,7 @@ public class CharacterUIRoot : MonoBehaviour
             return;
         }
 
-        if(waitGauge.fillAmount >= 1 && !IsGaugeFull)
+        if (waitGauge.fillAmount >= 1 && !IsGaugeFull)
         {
             IsGaugeFull = true;
             waitUISpeed = 0f;
@@ -71,14 +71,11 @@ public class CharacterUIRoot : MonoBehaviour
         hitPointText.text = $"{characterUIData.HitPoint}/{characterUIData.GetMaxHitPoint}";
         magicPointText.text = $"{characterUIData.MagicPoint}/{characterUIData.GetMaxMagicPoint}";
 
-        waitUISpeed += waitSpeed * Time.deltaTime;
-        waitGauge.fillAmount = waitUISpeed / waitGaugeLimit;
-
         //waitのターンの場合、ゲージを進める
-        if (MainGameStateManager.Instance.GetMainGameState.IsState(MainGameStateManager.Instance.MainGameStatesPlayerWaitTurn))
+        if (MainGameStateManager.Instance.GetMainGameState.IsState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
         {
             IsGaugeFull = false;
-            waitUISpeed += waitSpeed+Time.deltaTime;
+            waitUISpeed += waitSpeed * Time.deltaTime;
             waitGauge.fillAmount = waitUISpeed / waitGaugeLimit;
         }
     }
