@@ -20,6 +20,13 @@ public class MainGameCharacterController : MonoBehaviour
         get { return gameCharacterData; }
     }
 
+    private bool isDead;
+
+    public bool GetIsDead
+    {
+        get { return isDead; }
+    }
+
     private Animator gameCharacterAnimator;
 
     public Animator GetGameCharacterAnimator
@@ -52,6 +59,8 @@ public class MainGameCharacterController : MonoBehaviour
         get { return characterPrefabTransform; }
     }
 
+    private CharacterAnimatorFunctionController characterAnimatorFunctionController;
+
     private void Start()
     {
         if (characterData != null)
@@ -74,6 +83,13 @@ public class MainGameCharacterController : MonoBehaviour
         primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
 
         characterStateMachine.Initialize(characterStateMachine.waitState);
+
+        characterAnimatorFunctionController = characterPrefab.GetComponent<CharacterAnimatorFunctionController>();
+
+        if (characterAnimatorFunctionController != null)
+        {
+            characterAnimatorFunctionController.AttackFunction = PhysicsAttackFunction;
+        }
     }
 
     private void Update()
@@ -107,5 +123,23 @@ public class MainGameCharacterController : MonoBehaviour
         yield return new WaitWhile(() => !gameCharacterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
 
         IsActionChoiced = false;
+    }
+
+    private void PhysicsAttackFunction()
+    {
+        GameCharacterDataProvider.Instance.PointOfAttack
+            .GetComponentInParent<MainGameCharacterController>()
+            .Damage(gameCharacterData.PhysicalAttackPower);
+    }
+
+    public void Damage(float damage)
+    {
+        gameCharacterData.HitPoint -= damage;
+
+        if (gameCharacterData.HitPoint < 0)
+        {
+            gameCharacterData.HitPoint = 0;
+            isDead = true;
+        }
     }
 }

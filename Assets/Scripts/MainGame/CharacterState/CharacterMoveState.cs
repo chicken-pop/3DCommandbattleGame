@@ -28,6 +28,7 @@ public class CharacterMoveState : ICharacterState
         {
             var enemy = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault();
             pointOfAttack = enemy.PointOfAttack;
+            GameCharacterDataProvider.Instance.PointOfAttack = enemy.PointOfAttack;
         }
 
         if (mainGameCharacterController.IsActionChoiced)
@@ -56,7 +57,6 @@ public class CharacterMoveState : ICharacterState
         }
         else
         {
-            Debug.Log("a");
             //Œã‘Þ‚·‚é‚Æ‚«
             mainGameCharacterController.GetCharacterPrefabTransform.position =
                 Vector3.Lerp(mainGameCharacterController.GetCharacterPrefabTransform.position,

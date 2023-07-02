@@ -3696,6 +3696,7 @@ GameObject:
   - component: {fileID: 5233800629512727587}
   - component: {fileID: 2149306636399215709}
   - component: {fileID: 1880275352738097667}
+  - component: {fileID: -1287743430114819201}
   m_Layer: 0
   m_Name: "\u7537\u306E\u5B501"
   m_TagString: Untagged
@@ -4088,6 +4089,18 @@ MonoBehaviour:
   DrawLookAtGizmo: 1
   LookAtTarget: {fileID: 0}
   LookAtTargetType: 0
+--- !u!114 &-1287743430114819201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909317705921860666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9e359d95bd2d44b81e9a0841284a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3926323240659081965
 GameObject:
   m_ObjectHideFlags: 0
