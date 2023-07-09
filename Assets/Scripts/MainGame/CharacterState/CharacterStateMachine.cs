@@ -10,6 +10,7 @@ public class CharacterStateMachine
     public CharacterWaitState waitState;
     public CharacterMoveState moveState;
     public CharacterAttackState attackState;
+    public CharacterDeadState deadState;
 
     public event Action<ICharacterState> stateChange;
 
@@ -19,6 +20,7 @@ public class CharacterStateMachine
         this.waitState = new CharacterWaitState(mainGameCharacterController);
         this.moveState = new CharacterMoveState(mainGameCharacterController);
         this.attackState = new CharacterAttackState(mainGameCharacterController);
+        this.deadState = new CharacterDeadState(mainGameCharacterController);
     }
 
     //CharacterState‚ªƒZƒbƒg‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚é

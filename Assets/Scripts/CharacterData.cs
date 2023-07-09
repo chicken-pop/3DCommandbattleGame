@@ -10,7 +10,7 @@ public class CharacterData : ScriptableObject
 
     [SerializeField]
     public float HitPoint;
-    private float maxHitPoint => HitPoint;
+    private float maxHitPoint;
     public float GetMaxHitPoint
     {
         get { return maxHitPoint; }
@@ -18,7 +18,7 @@ public class CharacterData : ScriptableObject
 
     [SerializeField]
     public float MagicPoint;
-    private float maxMagicPoint => MagicPoint;
+    private float maxMagicPoint;
     public float GetMaxMagicPoint
     {
         get { return maxMagicPoint; }
@@ -36,7 +36,7 @@ public class CharacterData : ScriptableObject
     [SerializeField]
     public enum CharacterTypes
     {
-        Invalide=-1,
+        Invalide = -1,
         Fighter,
         SpellCaster,
     }
@@ -54,10 +54,12 @@ public class CharacterData : ScriptableObject
     {
         Name = characterData.Name;
         HitPoint = characterData.HitPoint;
+        maxHitPoint = characterData.HitPoint;
         MagicPoint = characterData.MagicPoint;
+        maxMagicPoint = characterData.MagicPoint;
         Speed = characterData.Speed;
         PhysicalAttackPower = characterData.PhysicalAttackPower;
-        MagicPoint = characterData.MagicalAttackPower;
+        MagicalAttackPower = characterData.MagicalAttackPower;
         CharacterType = characterData.CharacterType;
         CharacterPrefab = characterData.CharacterPrefab;
         IsEnemy = characterData.IsEnemy;

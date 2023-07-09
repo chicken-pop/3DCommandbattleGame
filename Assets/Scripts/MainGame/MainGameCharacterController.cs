@@ -103,7 +103,6 @@ public class MainGameCharacterController : MonoBehaviour
 
     public void SetAnimnation(int actionType)
     {
-        Debug.Log("a");
         IsActionChoiced = true;
         if (characterData.CharacterType == CharacterData.CharacterTypes.SpellCaster)
         {
@@ -123,6 +122,8 @@ public class MainGameCharacterController : MonoBehaviour
             .GetComponentInParent<MainGameCharacterController>()
             .Damage(gameCharacterData.PhysicalAttackPower);
         MainGameCameraManager.Instance.CameraShake();
+
+        Debug.Log("damage");
     }
 
     public void Damage(float damage)

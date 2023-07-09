@@ -35,12 +35,11 @@ public class MainGameStatesWaitTurn : MainGameStatesGameMain
         }
         else
         {
-            Debug.Log("aaa");
         }
 
         if (GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault())
         {
-            Debug.Log(enemyWaitTime);
+            //Debug.Log(enemyWaitTime);
             enemyWaitTime -= GameCharacterDataProvider
                 .Instance.EnemyCharacterContorllers
                 .FirstOrDefault().GetCharacterData

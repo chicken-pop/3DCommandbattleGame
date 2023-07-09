@@ -11,6 +11,8 @@ public class MainGameStatesGameResult : MainGameState
     public override void Enter()
     {
         Debug.Log("MainGameStatesResult Enter");
+        //ƒJƒƒ‰‚Ì‰Šú‰»
+        MainGameCameraManager.Instance.DetouchFollowCamera();
     }
 
     public override void Exit()

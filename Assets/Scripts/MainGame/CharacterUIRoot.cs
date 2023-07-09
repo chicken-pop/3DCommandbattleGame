@@ -71,6 +71,16 @@ public class CharacterUIRoot : MonoBehaviour
         hitPointText.text = $"{characterUIData.HitPoint}/{characterUIData.GetMaxHitPoint}";
         magicPointText.text = $"{characterUIData.MagicPoint}/{characterUIData.GetMaxMagicPoint}";
 
+        if (hitPointGauge.fillAmount != characterUIData.HitPoint / characterUIData.GetMaxHitPoint)
+        {
+            hitPointGauge.fillAmount = characterUIData.HitPoint / characterUIData.GetMaxHitPoint;
+        }
+
+        if (magicPointGauge.fillAmount != characterUIData.MagicPoint / characterUIData.GetMaxMagicPoint)
+        {
+            magicPointGauge.fillAmount = characterUIData.MagicPoint / characterUIData.GetMaxMagicPoint;
+        }
+
         //waitのターンの場合、ゲージを進める
         if (MainGameStateManager.Instance.GetMainGameState.IsState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
         {

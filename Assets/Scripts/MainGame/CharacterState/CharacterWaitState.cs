@@ -19,7 +19,10 @@ public class CharacterWaitState : ICharacterState
 
     public void Update()
     {
-
+        if (mainGameCharacterController.GetIsDead)
+        {
+            mainGameCharacterController.GetCharacterStateMachine.TransitionTo(mainGameCharacterController.GetCharacterStateMachine.deadState);
+        }
     }
 
     public void Exit()
