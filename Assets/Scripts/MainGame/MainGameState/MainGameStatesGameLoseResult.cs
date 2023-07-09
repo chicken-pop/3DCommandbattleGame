@@ -16,6 +16,7 @@ public class MainGameStatesGameLoseResult : MainGameState
         Debug.Log("MainGameStatesResult Enter");
         MainGameCameraManager.Instance.LoseCameraSetteing();
         mainGameRenderingManager.SetLoseScreenRenderer();
+        MainGameUISettingManager.Instance.AllInvisibleCharacterUIs();
 
     }
 

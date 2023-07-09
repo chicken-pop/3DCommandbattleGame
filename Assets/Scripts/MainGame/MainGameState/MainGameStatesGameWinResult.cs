@@ -16,6 +16,7 @@ public class MainGameStatesGameWinResult : MainGameState
         Debug.Log("MainGameStatesResult Enter");
         MainGameCameraManager.Instance.WinCameraSetteing();
         mainGameRenderingManager.SetWinScreennRenderer();
+        MainGameUISettingManager.Instance.AllInvisibleCharacterUIs();
     }
 
     public override void Exit()

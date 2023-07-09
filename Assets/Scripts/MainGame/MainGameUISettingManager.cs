@@ -28,4 +28,13 @@ public class MainGameUISettingManager : SingletonMonoBehaviour<MainGameUISetting
         mainGameUIButtonsManager.gameObject.SetActive(true);
         mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
     }
+
+    //全てのCharacterのパラメーターUIを非表示にする
+    public void AllInvisibleCharacterUIs()
+    {
+        foreach (var uiRoot in characterUIRoots)
+        {
+            uiRoot.gameObject.SetActive(false);
+        }
+    }
 }
