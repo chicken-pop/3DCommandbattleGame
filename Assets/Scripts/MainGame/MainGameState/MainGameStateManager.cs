@@ -31,6 +31,9 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
     [SerializeField] 
     private List<CharacterUIRoot> CharacterUIRoots = new List<CharacterUIRoot>();
 
+    [SerializeField]
+    private MainGameRenderingManager mainGameRenderingManager;
+
     private void Start()
     {
         stateMachine = new MainGameStateMachine();
@@ -43,8 +46,8 @@ public class MainGameStateManager : SingletonMonoBehaviour<MainGameStateManager>
         MainGameStatesAttackTurn = new MainGameStatesAttackTurn(stateMachine);
 
 
-        MainGameStatesGameLoseResult = new MainGameStatesGameLoseResult(stateMachine);
-        MainGameStatesGameWinResult = new MainGameStatesGameWinResult(stateMachine);
+        MainGameStatesGameLoseResult = new MainGameStatesGameLoseResult(stateMachine, mainGameRenderingManager);
+        MainGameStatesGameWinResult = new MainGameStatesGameWinResult(stateMachine, mainGameRenderingManager);
 
         //Initからスタート
         stateMachine.ChangeState(MainGameStatesGameInit);

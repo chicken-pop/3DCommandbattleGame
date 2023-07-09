@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class MainGameStatesGameWinResult : MainGameState
 {
-    public MainGameStatesGameWinResult(MainGameStateMachine stateMachine) : base(stateMachine)
+    private MainGameRenderingManager mainGameRenderingManager;
+
+    public MainGameStatesGameWinResult(MainGameStateMachine stateMachine, MainGameRenderingManager _mainGameRenderingManager) : base(stateMachine)
     {
+        mainGameRenderingManager = _mainGameRenderingManager;
     }
 
     public override void Enter()
     {
         Debug.Log("MainGameStatesResult Enter");
         MainGameCameraManager.Instance.WinCameraSetteing();
+        mainGameRenderingManager.SetWinScreennRenderer();
     }
 
     public override void Exit()

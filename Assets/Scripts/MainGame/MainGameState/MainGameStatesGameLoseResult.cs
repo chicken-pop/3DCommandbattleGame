@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class MainGameStatesGameLoseResult : MainGameState
 {
-    public MainGameStatesGameLoseResult(MainGameStateMachine stateMachine) : base(stateMachine)
+    private MainGameRenderingManager mainGameRenderingManager;
+
+    public MainGameStatesGameLoseResult(MainGameStateMachine stateMachine, MainGameRenderingManager _mainGameRenderingManager) : base(stateMachine)
     {
+        mainGameRenderingManager = _mainGameRenderingManager;
     }
 
     public override void Enter()
     {
         Debug.Log("MainGameStatesResult Enter");
         MainGameCameraManager.Instance.LoseCameraSetteing();
+        mainGameRenderingManager.SetLoseScreenRenderer();
+
     }
 
     public override void Exit()

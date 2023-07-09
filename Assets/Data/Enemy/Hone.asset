@@ -16,7 +16,7 @@ MonoBehaviour:
   HitPoint: 30
   MagicPoint: 100
   Speed: 80
-  PhysicalAttackPower: 20
+  PhysicalAttackPower: 400
   MagicalAttackPower: 20
   CharacterType: 0
   CharacterPrefab: {fileID: 1783563462218004, guid: 7f931d4b5c97d194d8726ddf5acdd440,
