@@ -26,18 +26,19 @@ public class CharacterMoveState : ICharacterState
         this.pointOfAttack = GameCharacterDataProvider.Instance.PointOfAttack;
 
         //敵だった場合
-        if (characterData.IsEnemy)
+        if (characterData.IsEnemy && mainGameCharacterController.IsActionChoiced)
         {
             pointOfAttack = GameCharacterDataProvider.Instance.PlayerCharacterControllers.FirstOrDefault().PointOfAttack;
             //攻撃目標を決める
             GameCharacterDataProvider.Instance.PointOfAttack = pointOfAttack;
         }
 
-        if (pointOfAttack == null)
+        //プレイヤーのアタックターゲットが無い場合
+        if (!characterData.IsEnemy && pointOfAttack == null)
         {
             var enemy = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault();
             pointOfAttack = enemy.PointOfAttack;
-            GameCharacterDataProvider.Instance.PointOfAttack = enemy.PointOfAttack;
+            GameCharacterDataProvider.Instance.PointOfAttack = pointOfAttack;
         }
 
         if (mainGameCharacterController.IsActionChoiced)
@@ -69,7 +70,7 @@ public class CharacterMoveState : ICharacterState
             //後退するとき
             mainGameCharacterController.GetCharacterPrefabTransform.position =
                 Vector3.Lerp(mainGameCharacterController.GetCharacterPrefabTransform.position,
-                mainGameCharacterController.transform.position, Time.deltaTime);
+                mainGameCharacterController.transform.position, Time.deltaTime * 3);
 
             if ((mainGameCharacterController.GetCharacterPrefabTransform.position - mainGameCharacterController.transform.position).magnitude < nearDistance)
             {
@@ -80,5 +81,6 @@ public class CharacterMoveState : ICharacterState
 
     public void Exit()
     {
+        pointOfAttack = null;
     }
 }

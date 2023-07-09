@@ -37,5 +37,7 @@ public class CharacterAttackState : ICharacterState
     public void Exit()
     {
         mainGameCharacterController.IsActionChoiced = false;
+        //UŒ‚’n“_‚Ì‰Šú‰»
+        GameCharacterDataProvider.Instance.PointOfAttack = null;
     }
 }

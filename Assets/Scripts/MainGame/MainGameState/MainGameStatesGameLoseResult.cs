@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGameStatesGameResult : MainGameState
+public class MainGameStatesGameLoseResult : MainGameState
 {
-    public MainGameStatesGameResult(MainGameStateMachine stateMachine) : base(stateMachine)
+    public MainGameStatesGameLoseResult(MainGameStateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
         Debug.Log("MainGameStatesResult Enter");
-        //ƒJƒƒ‰‚Ì‰Šú‰»
-        MainGameCameraManager.Instance.DetouchFollowCamera();
+        MainGameCameraManager.Instance.LoseCameraSetteing();
     }
 
     public override void Exit()

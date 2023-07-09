@@ -23,12 +23,16 @@ public class MainGameStatesGameMain : MainGameState
 
     public override void Update()
     {
-        //Debug.Log("MainGameStatesGameMain Update");
-        //MainGameCharacterController‚ÌHp‚ðŽæ“¾‚·‚é
-        if(GameCharacterDataProvider.Instance.PlayerCharacterControllers.All(x => x.GetCharacterData.HitPoint <= 0))
+        //•‰‚¯‚½ê‡
+        if (GameCharacterDataProvider.Instance.PlayerCharacterControllers.All(x => x.GetIsDead))
         {
-            //HitPoint‚ª‚È‚­‚È‚Á‚½‚çResult‚É
-            stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesGameResult);
+            stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesGameLoseResult);
+        }
+
+        //Ÿ‚Á‚½ê‡
+        if (GameCharacterDataProvider.Instance.EnemyCharacterContorllers.All(x=>x.GetIsDead))
+        {
+            stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesGameWinResult);
         }
         
     }

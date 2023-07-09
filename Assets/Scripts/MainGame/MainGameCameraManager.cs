@@ -17,6 +17,12 @@ public class MainGameCameraManager : SingletonMonoBehaviour<MainGameCameraManage
     [SerializeField]
     private List<Cinemachine.NoiseSettings> noiseProfiles = new List<Cinemachine.NoiseSettings>();
 
+    enum ResultCameraMode
+    {
+        Win = 1,
+        Lose
+    }
+
     enum NoiseSettings
     {
         Invalide = -1,
@@ -61,6 +67,18 @@ public class MainGameCameraManager : SingletonMonoBehaviour<MainGameCameraManage
     public void CameraShake()
     {
         cinemachineBasicMultiChannelPerlin.m_NoiseProfile = noiseProfiles[(int)NoiseSettings.Shake];
+    }
+
+    public void WinCameraSetteing()
+    {
+        DetouchFollowCamera();
+        cinemachineVirtualCameras[(int)ResultCameraMode.Win].Priority = 11;
+    }
+
+    public void LoseCameraSetteing()
+    {
+        DetouchFollowCamera();
+        cinemachineVirtualCameras[(int)ResultCameraMode.Lose].Priority = 11;
     }
 
 }

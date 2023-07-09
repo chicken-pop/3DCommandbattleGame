@@ -20,7 +20,7 @@ public class MainGameCharacterController : MonoBehaviour
         get { return gameCharacterData; }
     }
 
-    private bool isDead;
+    private bool isDead = false;
 
     public bool GetIsDead
     {
