@@ -28,7 +28,7 @@ public class CharacterMoveState : ICharacterState
         //“G‚¾‚Á‚½ê‡
         if (characterData.IsEnemy && mainGameCharacterController.IsActionChoiced)
         {
-            pointOfAttack = GameCharacterDataProvider.Instance.PlayerCharacterControllers.FirstOrDefault().PointOfAttack;
+            pointOfAttack = GameCharacterDataProvider.Instance.PlayerCharacterControllers.FirstOrDefault(chara => !chara.GetIsDead).PointOfAttack;
             //UŒ‚–Ú•W‚ğŒˆ‚ß‚é
             GameCharacterDataProvider.Instance.PointOfAttack = pointOfAttack;
         }

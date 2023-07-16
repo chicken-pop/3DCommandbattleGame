@@ -32,6 +32,11 @@ public class CharacterStateMachine
         stateChange?.Invoke(state);
     }
 
+    public bool IsState(ICharacterState state)
+    {
+        return CurrentState == state;
+    }
+
     //•Ê‚ÌCharacterState‚É•ÏX‚·‚éÛ‚ÉŒÄ‚Î‚ê‚é
     public void TransitionTo(ICharacterState nextState)
     {

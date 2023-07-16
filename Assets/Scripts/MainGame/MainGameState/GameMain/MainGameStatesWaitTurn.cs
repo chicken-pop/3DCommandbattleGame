@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class MainGameStatesWaitTurn : MainGameStatesGameMain
 {
-    private List<CharacterUIRoot> characterUIRoots;
-    private float enemyWaitTime = 100f;
-
-    public MainGameStatesWaitTurn(MainGameStateMachine stateMachine, List<CharacterUIRoot> characterUIRoots) : base(stateMachine)
+    public MainGameStatesWaitTurn(MainGameStateMachine stateMachine) : base(stateMachine)
     {
-        this.characterUIRoots = characterUIRoots;
     }
 
     public override void Enter()
@@ -28,15 +24,22 @@ public class MainGameStatesWaitTurn : MainGameStatesGameMain
         base.Update();
 
         //どれか一つでもゲージがフルであれば
-        if(characterUIRoots.Any(uiRoot => uiRoot.IsGaugeFull))
+        if(GameCharacterDataProvider.Instance.CharacterUIRoots.Any(uiRoot => uiRoot.IsGaugeFull))
         {
             //もしゲージがフルになったら選択するターンに移行する
             stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesChoiceTurn);
         }
-        else
+
+        foreach (var enemyControllers in GameCharacterDataProvider.Instance.EnemyCharacterContorllers)
         {
+            if(enemyControllers.IsActionChoiced && stateMachine.IsState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
+            {
+                enemyControllers.SetAnimnation(0);
+                stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesAttackTurn);
+            }
         }
 
+        /*
         if (GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault())
         {
             //Debug.Log(enemyWaitTime);
@@ -45,12 +48,13 @@ public class MainGameStatesWaitTurn : MainGameStatesGameMain
                 .FirstOrDefault().GetCharacterData
                 .Speed * Time.deltaTime;
 
-            if (enemyWaitTime < 0)
+            if (enemyWaitTime < 0 && !stateMachine.IsState(MainGameStateManager.Instance.MainGameStatesChoiceTurn))
             {
                 enemyWaitTime = 100f;
                 GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault().SetAnimnation(0);
                 stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesAttackTurn);
             }
         }
+        */
     }
 }

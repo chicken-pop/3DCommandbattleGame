@@ -10,7 +10,8 @@ public class MainGameStatesGameInit : MainGameState
 
     public override void Enter()
     {
-        Debug.Log("MainGameStatesGameInit Enter");  
+        Debug.Log("MainGameStatesGameInit Enter");
+        GameCharacterDataProvider.Instance.SetCharacterUIRoots();
     }
 
     public override void Exit()

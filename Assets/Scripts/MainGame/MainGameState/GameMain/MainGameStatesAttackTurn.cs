@@ -40,8 +40,7 @@ public class MainGameStatesAttackTurn : MainGameStatesGameMain
         base.Update();
 
         //アニメーションが終わったらWaitTurnに移行する
-        if (GameCharacterDataProvider.Instance.PlayerCharacterControllers.All(player => !player.IsActionChoiced)
-            && GameCharacterDataProvider.Instance.EnemyCharacterContorllers.All(enemy => !enemy.IsActionChoiced))
+        if (!currentMainGameCharacterController.IsActionChoiced)
         {
             stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesWaitTurn);
             MainGameCameraManager.Instance.DetouchFollowCamera();

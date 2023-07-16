@@ -19,4 +19,6 @@ MonoBehaviour:
   PhysicalAttackPower: 100
   MagicalAttackPower: 0
   CharacterType: 0
-  CharacterPrefab: {fileID: 0}
+  CharacterPrefab: {fileID: 972053119939010042, guid: 5c3db19f42513924d9f8024e5f0e6ea1,
+    type: 3}
+  IsEnemy: 0

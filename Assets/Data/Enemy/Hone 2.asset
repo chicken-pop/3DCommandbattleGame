@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7adc47e0545c25458b11f9a1911f161, type: 3}
-  m_Name: Girl2
+  m_Name: Hone 2
   m_EditorClassIdentifier: 
-  Name: "\u9B54\u6CD5\u4F7F\u3044"
-  HitPoint: 200
+  Name: "\u30DB\u30FC\u30F3"
+  HitPoint: 30
   MagicPoint: 100
-  Speed: 30
-  PhysicalAttackPower: 30
-  MagicalAttackPower: 80
+  Speed: 80
+  PhysicalAttackPower: 400
+  MagicalAttackPower: 20
   CharacterType: 0
-  CharacterPrefab: {fileID: 2588715667535084977, guid: d81a34ea35eb3fd469981517408f49fc,
+  CharacterPrefab: {fileID: 1462720695320296, guid: e9a03d46b76afe246a9ffd58d255bb65,
     type: 3}
-  IsEnemy: 0
+  IsEnemy: 1

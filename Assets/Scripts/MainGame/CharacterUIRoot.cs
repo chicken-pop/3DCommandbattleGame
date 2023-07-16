@@ -69,6 +69,12 @@ public class CharacterUIRoot : MonoBehaviour
         }
 
         hitPointText.text = $"{characterUIData.HitPoint}/{characterUIData.GetMaxHitPoint}";
+
+        if(characterUIData.HitPoint <= 0)
+        {
+            return;
+        }
+
         magicPointText.text = $"{characterUIData.MagicPoint}/{characterUIData.GetMaxMagicPoint}";
 
         if (hitPointGauge.fillAmount != characterUIData.HitPoint / characterUIData.GetMaxHitPoint)

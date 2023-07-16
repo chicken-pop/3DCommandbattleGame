@@ -61,6 +61,8 @@ public class MainGameCharacterController : MonoBehaviour
 
     private CharacterAnimatorFunctionController characterAnimatorFunctionController;
 
+    private float enemyWaitTime = 100f;
+
     private void Start()
     {
         if (characterData != null)
@@ -99,6 +101,20 @@ public class MainGameCharacterController : MonoBehaviour
     private void Update()
     {
         characterStateMachine.Update();
+
+        if (gameCharacterData.IsEnemy)
+        {
+            if (characterStateMachine.IsState(characterStateMachine.waitState) 
+                && MainGameStateManager.Instance.IsMainGameState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
+            {
+                enemyWaitTime -= gameCharacterData.Speed * Time.deltaTime;
+                if(enemyWaitTime < 0)
+                {
+                    IsActionChoiced = true;
+                    enemyWaitTime = 100f;
+                }
+            }
+        }
     }
 
     public void SetAnimnation(int actionType)
