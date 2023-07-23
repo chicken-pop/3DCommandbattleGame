@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: "\u30DB\u30FC\u30F3"
   HitPoint: 30
   MagicPoint: 100
-  Speed: 80
+  Speed: 10
   PhysicalAttackPower: 400
   MagicalAttackPower: 20
   CharacterType: 0

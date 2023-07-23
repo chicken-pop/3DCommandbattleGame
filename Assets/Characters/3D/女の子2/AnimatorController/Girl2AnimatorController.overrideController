@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: Girl2AnimatorController
   m_Controller: {fileID: 9100000, guid: a5f843780eba63f4fb06e2d0c3a7a4c9, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: a8799eddf08d8dd43a67d6833ce64a27, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: c24ac9eb64631b74a8a74fc5a1940e00, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 620094814efd7a142bdd59a13a006502, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 84a6608f934706641a23e3ff627a16b6, type: 2}

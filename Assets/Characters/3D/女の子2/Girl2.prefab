@@ -3774,8 +3774,9 @@ GameObject:
   - component: {fileID: 6705412773404657064}
   - component: {fileID: 612355877651066326}
   - component: {fileID: 1131613975148282760}
+  - component: {fileID: 477691790219854271}
   m_Layer: 0
-  m_Name: "\u5973\u306E\u5B502"
+  m_Name: Girl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3870,7 +3871,7 @@ MonoBehaviour:
   m_RightLittleDistal: {fileID: 7100275850283565195}
 --- !u!95 &612355877651066326
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3882,13 +3883,14 @@ Animator:
   m_Controller: {fileID: 22100000, guid: 0be9f6b74d05fbc4b89f29a1a323ad96, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1131613975148282760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4287,6 +4289,18 @@ MonoBehaviour:
   DrawLookAtGizmo: 1
   LookAtTarget: {fileID: 0}
   LookAtTargetType: 0
+--- !u!114 &477691790219854271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588715667535084977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9e359d95bd2d44b81e9a0841284a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2640675231238998766
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,14 @@ public class MainGameCharacterController : MonoBehaviour
 
         if (characterAnimatorFunctionController != null)
         {
-            characterAnimatorFunctionController.AttackFunction = PhysicsAttackFunction;
+            if (characterData.CharacterType == CharacterData.CharacterTypes.SpellCaster)
+            {
+                characterAnimatorFunctionController.AttackFunction = MagicAttackFunction;
+            }
+            else
+            {
+                characterAnimatorFunctionController.AttackFunction = PhysicsAttackFunction;
+            }
         }
     }
 
@@ -104,11 +111,11 @@ public class MainGameCharacterController : MonoBehaviour
 
         if (gameCharacterData.IsEnemy)
         {
-            if (characterStateMachine.IsState(characterStateMachine.waitState) 
+            if (characterStateMachine.IsState(characterStateMachine.waitState)
                 && MainGameStateManager.Instance.IsMainGameState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
             {
                 enemyWaitTime -= gameCharacterData.Speed * Time.deltaTime;
-                if(enemyWaitTime < 0)
+                if (enemyWaitTime < 0)
                 {
                     IsActionChoiced = true;
                     enemyWaitTime = 100f;
@@ -132,6 +139,7 @@ public class MainGameCharacterController : MonoBehaviour
         //StartCoroutine(SetActionAnimation(actionType));
     }
 
+    //•¨—UŒ‚‚Ìê‡
     private void PhysicsAttackFunction()
     {
         GameCharacterDataProvider.Instance.PointOfAttack
@@ -140,6 +148,17 @@ public class MainGameCharacterController : MonoBehaviour
         MainGameCameraManager.Instance.CameraShake();
 
         Debug.Log("damage");
+    }
+
+    //–‚–@UŒ‚‚Ìê‡
+    private void MagicAttackFunction()
+    {
+        GameCharacterDataProvider.Instance.PointOfAttack
+            .GetComponentInParent<MainGameCharacterController>()
+            .Damage(gameCharacterData.MagicalAttackPower);
+
+        gameCharacterData.MagicalAttackPower -= 10;
+        MainGameCameraManager.Instance.CameraShake();
     }
 
     public void Damage(float damage)
