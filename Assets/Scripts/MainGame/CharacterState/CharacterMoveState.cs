@@ -36,7 +36,7 @@ public class CharacterMoveState : ICharacterState
         //プレイヤーのアタックターゲットが無い場合
         if (!characterData.IsEnemy && pointOfAttack == null)
         {
-            var enemy = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault(chara=> !chara.GetIsDead).PointOfAttack;
+             pointOfAttack = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault(chara=> !chara.GetIsDead).PointOfAttack;
             GameCharacterDataProvider.Instance.PointOfAttack = pointOfAttack;
         }
 

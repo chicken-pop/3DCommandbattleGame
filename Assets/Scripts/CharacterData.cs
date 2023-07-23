@@ -50,6 +50,9 @@ public class CharacterData : ScriptableObject
     [SerializeField]
     public bool IsEnemy;
 
+    [SerializeField]
+    public List<CommandAbilityData> CommandAbilities = new List<CommandAbilityData>();
+
     public void Initialize(CharacterData characterData)
     {
         Name = characterData.Name;
@@ -63,6 +66,7 @@ public class CharacterData : ScriptableObject
         CharacterType = characterData.CharacterType;
         CharacterPrefab = characterData.CharacterPrefab;
         IsEnemy = characterData.IsEnemy;
+        CommandAbilities = characterData.CommandAbilities;
 
     }
 }

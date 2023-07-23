@@ -26,7 +26,7 @@ public class MainGameUISettingManager : SingletonMonoBehaviour<MainGameUISetting
     public void SetButton(MainGameCharacterController mainGameCharacterController)
     {
         mainGameUIButtonsManager.gameObject.SetActive(true);
-        mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.primaryButtonAction);
+        mainGameUIButtonsManager.SetButtonActions(mainGameCharacterController.ButtonActions);
     }
 
     //全てのCharacterのパラメーターUIを非表示にする

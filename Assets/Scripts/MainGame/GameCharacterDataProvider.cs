@@ -10,6 +10,8 @@ public class GameCharacterDataProvider : SingletonMonoBehaviour<GameCharacterDat
 
     public Transform PointOfAttack = null;
 
+    public int CharacterAbilityChoiceIndex = 0;
+
     public override void Awake()
     {
         isSceneinSingleton = true;

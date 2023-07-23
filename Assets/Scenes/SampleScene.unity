@@ -171,6 +171,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 0b9845d27b1331541b56304c9671d09e, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 907495746}
+  SetIndexButtonAbility: 0
 --- !u!1 &128557441
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 67e8db0e9635aa045b93de3ee6568143, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 128557442}
+  SetIndexButtonAbility: 0
 --- !u!1 &385668910
 GameObject:
   m_ObjectHideFlags: 3
@@ -1003,6 +1005,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5052791329597551270, guid: 922288f8c5ff6414884aa539f16c8e52,
         type: 3}
       propertyPath: mainGameUIButtonsManager
@@ -1324,6 +1343,7 @@ MonoBehaviour:
   - {fileID: 1906326242}
   - {fileID: 832564290}
   PointOfAttack: {fileID: 0}
+  CharacterAbilityChoiceIndex: 0
 --- !u!4 &881285960
 Transform:
   m_ObjectHideFlags: 0
@@ -1525,6 +1545,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 13f0feae020c0314fabed6f5f2a46dcc, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 157298389}
+  SetIndexButtonAbility: 0
 --- !u!4 &1177983034
 Transform:
   m_ObjectHideFlags: 0
@@ -1798,7 +1819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1631084968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1917,6 +1938,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 6c6ea4bb7c77b9648bd1324a8f053531, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 1455950830}
+  SetIndexButtonAbility: 0
 --- !u!4 &1751971774
 Transform:
   m_ObjectHideFlags: 0
@@ -2110,6 +2132,23 @@ PrefabInstance:
     - target: {fileID: 2793699878765678782, guid: 922288f8c5ff6414884aa539f16c8e52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5052791329597551270, guid: 922288f8c5ff6414884aa539f16c8e52,
@@ -2318,6 +2357,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 2f59923b5312a4140a7a228aa620628f, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 694853635}
+  SetIndexButtonAbility: 0
 --- !u!1 &1997566080
 GameObject:
   m_ObjectHideFlags: 3
@@ -2463,6 +2503,7 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: f0fe722ba6e82ea4b8e35d8d20806aac, type: 2}
   IsActionChoiced: 0
   PointOfAttack: {fileID: 775998559}
+  SetIndexButtonAbility: 0
 --- !u!4 &2074950229
 Transform:
   m_ObjectHideFlags: 0
@@ -2632,10 +2673,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6149427529470682971, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 6149427529470682971, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 6149427529470682971, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6944504161396982575, guid: 74e8d042b9ea59748be5d74204a0a3c8,
         type: 3}
       propertyPath: m_Name
       value: PlayerActionButtonRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525154871679980862, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 7525154871679980862, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 7525154871679980862, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089196058794463407, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 8089196058794463407, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 8089196058794463407, guid: 74e8d042b9ea59748be5d74204a0a3c8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9098400785393276385, guid: 74e8d042b9ea59748be5d74204a0a3c8,
         type: 3}
@@ -2726,9 +2818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f73792d432097e4ebf5191003bf894c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryButton: {fileID: 204423369544356654}
-  secondaryButton: {fileID: 204423369544356653}
-  tertiaryButton: {fileID: 204423369544356652}
+  AbilityButttons:
+  - {fileID: 204423369544356654}
+  - {fileID: 204423369544356653}
+  - {fileID: 204423369544356652}
 --- !u!1001 &2622759556192752667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2780,6 +2873,23 @@ PrefabInstance:
     - target: {fileID: 2793699878765678782, guid: 922288f8c5ff6414884aa539f16c8e52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3341316077033957901, guid: 3687e7e3ea98ea743863fe6f44d7b00d,
+        type: 2}
+    - target: {fileID: 2964321643706024012, guid: 922288f8c5ff6414884aa539f16c8e52,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5052791329597551270, guid: 922288f8c5ff6414884aa539f16c8e52,

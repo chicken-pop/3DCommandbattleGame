@@ -27,17 +27,15 @@ public class CharacterAttackState : ICharacterState
                     = GameCharacterDataProvider.Instance.EnemyCharacterContorllers.FirstOrDefault(chara => !chara.GetIsDead).PointOfAttack;
             }
         }
-
-        mainGameCharacterController.GetGameCharacterAnimator.Play("Action0");
     }
 
     public void Update()
     {
 
-        if (animationStateChanged)
+        if (!animationStateChanged)
         {
             animationStateChanged = true;
-            mainGameCharacterController.GetGameCharacterAnimator.Play("Action0");
+            mainGameCharacterController.GetGameCharacterAnimator.Play($"Action{GameCharacterDataProvider.Instance.CharacterAbilityChoiceIndex}");
             return;
         }
 
@@ -61,5 +59,6 @@ public class CharacterAttackState : ICharacterState
         mainGameCharacterController.IsActionChoiced = false;
         //çUåÇínì_ÇÃèâä˙âª
         GameCharacterDataProvider.Instance.PointOfAttack = null;
+        GameCharacterDataProvider.Instance.CharacterAbilityChoiceIndex = 0;
     }
 }

@@ -34,16 +34,11 @@ public class MainGameCharacterController : MonoBehaviour
         get { return gameCharacterAnimator; }
     }
 
-    [SerializeField]
-    //private CharacterUIRoot characterUIRoot;
-
-    public MainGameUIButtonsManager.ButtonAction primaryButtonAction;
-    public MainGameUIButtonsManager.ButtonAction secondaryButtonAction;
-    public MainGameUIButtonsManager.ButtonAction tertiaryButtonAction;
-
     public bool IsActionChoiced = false;
 
     private static string AnimationActionType = "ActionType";
+
+    public List<MainGameUIButtonsManager.ButtonAction> ButtonActions = new List<MainGameUIButtonsManager.ButtonAction>();
 
     public Transform PointOfAttack;
 
@@ -62,6 +57,8 @@ public class MainGameCharacterController : MonoBehaviour
     private CharacterAnimatorFunctionController characterAnimatorFunctionController;
 
     private float enemyWaitTime = 100f;
+
+    public int SetIndexButtonAbility = 0;
 
     private void Start()
     {
@@ -82,10 +79,17 @@ public class MainGameCharacterController : MonoBehaviour
 
         var CharacterClickHandler = characterPrefab.AddComponent<CharacterClickHandler>();
 
+        ButtonActions.Clear();
+
         //“G‚¶‚á‚È‚¢ê‡ƒ{ƒ^ƒ“‚ð•\Ž¦
         if (!characterData.IsEnemy)
         {
-            primaryButtonAction = new MainGameUIButtonsManager.ButtonAction("Attack", () => SetAnimnation(0));
+            for (int i = 0; i < gameCharacterData.CommandAbilities.Count; i++)
+            {
+                ButtonActions.Add(new MainGameUIButtonsManager.ButtonAction(gameCharacterData.CommandAbilities[i].CommandAbilityName,
+                    () => SetAnimnation(), 
+                    gameCharacterData.CommandAbilities[i].CommandAbilityIcon));
+            }
         }
 
         characterStateMachine.Initialize(characterStateMachine.waitState);
@@ -124,7 +128,7 @@ public class MainGameCharacterController : MonoBehaviour
         }
     }
 
-    public void SetAnimnation(int actionType)
+    public void SetAnimnation()
     {
         IsActionChoiced = true;
         if (characterData.CharacterType == CharacterData.CharacterTypes.SpellCaster)
@@ -157,7 +161,7 @@ public class MainGameCharacterController : MonoBehaviour
             .GetComponentInParent<MainGameCharacterController>()
             .Damage(gameCharacterData.MagicalAttackPower);
 
-        gameCharacterData.MagicalAttackPower -= 10;
+        gameCharacterData.MagicalAttackPower -= gameCharacterData.CommandAbilities[GameCharacterDataProvider.Instance.CharacterAbilityChoiceIndex].MagicCost;
         MainGameCameraManager.Instance.CameraShake();
     }
 

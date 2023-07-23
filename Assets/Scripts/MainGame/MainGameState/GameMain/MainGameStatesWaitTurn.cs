@@ -34,7 +34,7 @@ public class MainGameStatesWaitTurn : MainGameStatesGameMain
         {
             if(enemyControllers.IsActionChoiced && stateMachine.IsState(MainGameStateManager.Instance.MainGameStatesWaitTurn))
             {
-                enemyControllers.SetAnimnation(0);
+                enemyControllers.SetAnimnation();
                 stateMachine.ChangeState(MainGameStateManager.Instance.MainGameStatesAttackTurn);
             }
         }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MainGameUIButtonsManager : MonoBehaviour
 {
+    /*
     public Button primaryButton;
     private TextMeshProUGUI primaryButtonNameText;
 
@@ -15,67 +16,53 @@ public class MainGameUIButtonsManager : MonoBehaviour
 
     public Button tertiaryButton;
     private TextMeshProUGUI tertiaryButtonNameText;
+    */
+
+    public List<Button> AbilityButttons = new List<Button>();
 
     public class ButtonAction
     {
         public string buttonName = string.Empty;
         public UnityAction buttonAction = null;
+        public Sprite buttonSprite = null;
 
-        public ButtonAction(string buttonName, UnityAction buttonAction)
+        public ButtonAction(string buttonName, UnityAction buttonAction, Sprite buttonSprite)
         {
             this.buttonName = buttonName;
             this.buttonAction = buttonAction;
+            this.buttonSprite = buttonSprite;
         }
     }
 
     private void Start()
     {
-        primaryButtonNameText = primaryButton.GetComponentInChildren<TextMeshProUGUI>();
-        secondaryButtonText = secondaryButton.GetComponentInChildren<TextMeshProUGUI>();
-        tertiaryButtonNameText=tertiaryButton.GetComponentInChildren<TextMeshProUGUI>();
-
         this.gameObject.SetActive(false);
-
     }
 
-    public void SetButtonActions(ButtonAction primaryAction, ButtonAction secondaryAction=null,ButtonAction tertiaryAction = null)
+    public void SetButtonActions(List<ButtonAction> actions)
     {
-        primaryButton.onClick.RemoveAllListeners();
-        secondaryButton.onClick.RemoveAllListeners();
-        tertiaryButton.onClick.RemoveAllListeners();
-        secondaryButton.gameObject.SetActive(false);
-        tertiaryButton.gameObject.SetActive(false);
-
-        if (primaryAction != null)
+        foreach (var abilityButton in AbilityButttons) 
         {
-            primaryButtonNameText.text = primaryAction.buttonName;
-            primaryButton.onClick.AddListener(() =>
-            {
-                primaryAction.buttonAction.Invoke();
-                this.gameObject.SetActive(false);
-            });
+            abilityButton.onClick.RemoveAllListeners();
+            abilityButton.gameObject.SetActive(false);
         }
 
-        if (secondaryAction != null)
+        for (int i = 0; i < actions.Count; i++)
         {
-            secondaryButton.gameObject.SetActive(true);
-            secondaryButtonText.text = secondaryAction.buttonName;
-            secondaryButton.onClick.AddListener(() =>
-            {
-                secondaryAction.buttonAction.Invoke();
-                this.gameObject.SetActive(false);
-            });
-        }
-
-        if (tertiaryAction != null)
-        {
-            tertiaryButton.gameObject.SetActive(true);
-            tertiaryButtonNameText.text = tertiaryAction.buttonName;
-            tertiaryButton.onClick.AddListener(() =>
-            {
-                tertiaryAction.buttonAction.Invoke();
-                this.gameObject.SetActive(false);
-            });
+            AbilityButttons[i].gameObject.SetActive(true);
+            var buttonActions = actions[i].buttonAction;
+            var index = i;
+            AbilityButttons[i].onClick.AddListener(
+                () =>
+                {
+                    GameCharacterDataProvider.Instance.CharacterAbilityChoiceIndex = index;
+                    buttonActions.Invoke();
+                    this.gameObject.SetActive(false);
+                });
+            var abilityBuyyonText = AbilityButttons[i].GetComponentInChildren<TextMeshProUGUI>();
+            abilityBuyyonText.text = actions[i].buttonName;
+            var abilityButtonImage = AbilityButttons[i].GetComponentInChildren<Image>();
+            abilityButtonImage.sprite = actions[i].buttonSprite;
         }
     }
 }

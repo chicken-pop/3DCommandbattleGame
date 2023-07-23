@@ -22,3 +22,5 @@ MonoBehaviour:
   CharacterPrefab: {fileID: 3909317705921860666, guid: dd61e3d126ffa264ca11844591814e9d,
     type: 3}
   IsEnemy: 0
+  CommandAbilities:
+  - {fileID: 11400000, guid: c6b83a1d87aa785409011ffbcb38120f, type: 2}
